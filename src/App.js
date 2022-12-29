@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import PrivateRoute from "./utils/PrivateRoute";
 import Navbar from "./components/Navbar/Navbar";
 import Account from "./components/Account/Account";
+import Exercises from "./components/Exercises/Exercises";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Route element={<PrivateRoute />}>
         <Route element={<Navbar />}>
           <Route path="/" element={<Home />} />
-          <Route path="/exercises" element={<div>exercises</div>} />
+          <Route path="/exercises" element={<Exercises />} />
           <Route path="/account" element={<Account />} />
         </Route>
       </Route>

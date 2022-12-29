@@ -5,6 +5,7 @@
   --navbar-bg-color: rgb(0, 78, 0);
   --bg-color: rgb(0, 68, 0);
   --section-height: calc(100vh - (var(--navbar-height)));
+  --section-bg-color: rgb(218, 250, 225);
 }
 
 *{

@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(218, 250, 225);
+    background-color: var(--section-bg-color);
 }
 
 .account-table{

@@ -1,0 +1,74 @@
+.exercises-section{
+    min-height: var(--section-height);
+    background-color: var(--section-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+}
+
+.exercises-header{
+    background-color: var(--navbar-bg-color);
+    text-align: center;
+    /* padding: 2rem; */
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    text-shadow: 1px 1px 1px black;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .75rem;
+    padding: 2rem;
+}
+
+.list-container{
+    width: 100%;
+    max-width: 30rem;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(12, 12, 12, 1);
+-moz-box-shadow: 8px 8px 24px 0px rgba(12, 12, 12, 1);
+box-shadow: 8px 8px 24px 0px rgba(12, 12, 12, 1);
+border-radius: 1rem;
+}
+
+.header-span{
+    font-size: 1rem;
+    color: rgb(68, 196, 68);
+}
+
+.exercises-list{
+    list-style: none;
+}
+
+.list-element{
+    background-color: rgb(21, 131, 36);
+    font-size: 1.25rem;
+    padding: .75rem;
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.list-element:hover{
+    background-color: rgb(16, 100, 27);
+}
+
+.list-element:nth-child(even):hover{
+    background-color: rgb(16, 100, 27);
+}
+
+.list-element:not(:last-child){
+    border-bottom: 1px dashed rgb(56, 107, 26);
+}
+
+.list-element:nth-child(even){
+    background-color: rgb(24, 145, 40);
+}
+
+.list-element:last-child{
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
