@@ -9,9 +9,11 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setButtonDisabled(true);
 
     const user = {
       username,
@@ -38,6 +40,9 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err.message);
+      })
+      .finally(() => {
+        setButtonDisabled(false);
       });
   };
 
@@ -89,6 +94,7 @@ const Login = () => {
                   className="submit-btn"
                   onClick={handleSubmit}
                   type="submit"
+                  disabled={buttonDisabled}
                 >
                   Zaloguj
                 </button>

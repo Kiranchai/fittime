@@ -1,0 +1,40 @@
+.account-section{
+    min-height: var(--section-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(218, 250, 225);
+}
+
+.account-table{
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 1rem;
+    text-shadow: 1px 1px 1px black;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(12, 12, 12, 1);
+-moz-box-shadow: 8px 8px 24px 0px rgba(12, 12, 12, 1);
+box-shadow: 8px 8px 24px 0px rgba(12, 12, 12, 1);
+}
+
+
+.table-data{
+    padding: 1rem;
+}
+
+.table-data:nth-child(2){
+    background-color: rgb(133, 165, 125);
+}
+
+.table-row{
+    background-color: rgb(29, 102, 0);
+    border-bottom: 1px solid black;
+    color: white;
+    
+}
+
+.table-data:nth-of-type(1){
+   font-weight: 700;
+    
+}
