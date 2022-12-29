@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Exercises.css";
 
 const Exercises = () => {
   const [exercises, setExercises] = useState([]);
+  const [popupShown, setPopupShown] = useState(false);
 
   useEffect(() => {
     const fetchExercises = async () => {
@@ -18,24 +20,47 @@ const Exercises = () => {
     fetchExercises();
   }, []);
 
+  const handleClick = () => {
+    setPopupShown(true);
+  };
+
   return (
-    <section className="exercises-section">
-      <div className="list-container">
-        <h2 className="exercises-header">
-          Moje ćwiczenia
-          <span className="header-span">Dodaj</span>
-        </h2>
-        <ul className="exercises-list">
-          {exercises.map((exercise) => {
-            return (
-              <li key={exercise._id} className="list-element">
-                {exercise.name}
-              </li>
-            );
-          })}
-        </ul>
+    <>
+      <div className={popupShown ? "popup shown" : "popup"}>
+        <form className="popup-form">
+          <label>Nazwa ćwiczenia:</label>
+          <input type={"text"}></input>
+        </form>
       </div>
-    </section>
+
+      <section
+        className={
+          popupShown ? "exercises-section blurred" : "exercises-section"
+        }
+      >
+        <div className="list-container">
+          <h2 className="exercises-header">
+            Moje ćwiczenia
+            <span className="header-span" onClick={handleClick}>
+              Dodaj
+            </span>
+          </h2>
+          <div className="exercises-list">
+            {exercises.map((exercise) => {
+              return (
+                <NavLink
+                  className="list-element"
+                  to={`/exercise/${exercise._id}`}
+                  key={exercise._id}
+                >
+                  {exercise.name}
+                </NavLink>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

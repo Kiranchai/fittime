@@ -11,7 +11,6 @@
 .exercises-header{
     background-color: var(--navbar-bg-color);
     text-align: center;
-    /* padding: 2rem; */
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     text-shadow: 1px 1px 1px black;
@@ -36,10 +35,14 @@ border-radius: 1rem;
 .header-span{
     font-size: 1rem;
     color: rgb(68, 196, 68);
+    cursor: pointer;
 }
 
 .exercises-list{
     list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .list-element{
@@ -48,6 +51,8 @@ border-radius: 1rem;
     padding: .75rem;
     text-shadow: 1px 1px 1px black;
     text-align: center;
+    width: 100%;
+    color: white;
     cursor: pointer;
     transition: all .2s ease-in-out;
 }
@@ -71,4 +76,43 @@ border-radius: 1rem;
 .list-element:last-child{
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+}
+
+.navlink{
+    color: white;
+    width: 100%;
+}
+
+.popup{
+    position: fixed;
+    color: black;
+    left: calc(-1 * (var(--aside-width)));
+    background-color: rgb(94, 121, 94);
+    height: var(--section-height);
+    max-width: var(--aside-width);
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;    
+    
+    transition: all .4s ease-in-out;
+    /* transform: translate(calc(var(--aside-width) * -1)); */
+}
+
+.blurred {
+    filter: blur(5px);
+}
+
+.popup-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.shown{
+    left: 0;
+    -webkit-box-shadow: 4px 0px 32px 4px rgba(66, 68, 90, 1);
+-moz-box-shadow: 4px 0px 32px 4px rgba(66, 68, 90, 1);
+box-shadow: 4px 0px 32px 4px rgba(66, 68, 90, 1);
 }

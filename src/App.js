@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import PrivateRoute from "./utils/PrivateRoute";
 import Navbar from "./components/Navbar/Navbar";
 import Account from "./components/Account/Account";
+import SingleExercise from "./components/SingleExercise/SingleExercise";
 import Exercises from "./components/Exercises/Exercises";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/exercises" element={<Exercises />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/exercise/:id" element={<SingleExercise />} />
         </Route>
       </Route>
     </Routes>
