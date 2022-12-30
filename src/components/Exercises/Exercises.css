@@ -6,6 +6,7 @@
     align-items: center;
     padding: 1rem;
     color: white;
+    transition: all .4s ease-in-out;
 }
 
 .exercises-header{
@@ -43,6 +44,8 @@ border-radius: 1rem;
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    
 }
 
 .list-element{
@@ -105,14 +108,75 @@ border-radius: 1rem;
     filter: blur(5px);
 }
 
-.popup-form{
-    display: flex;
-    flex-direction: column;
-}
 
 .shown{
     left: 0;
     -webkit-box-shadow: 4px 0px 32px 4px rgba(66, 68, 90, 1);
 -moz-box-shadow: 4px 0px 32px 4px rgba(66, 68, 90, 1);
 box-shadow: 4px 0px 32px 4px rgba(66, 68, 90, 1);
+}
+
+.popup-form{
+    width: 100%;
+    padding: 2rem;
+    color: white;
+    background-color: rgb(97, 160, 97);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.popup-label{
+    font-size: 1.20rem;
+    font-weight: 400;
+    margin-bottom: .25rem;
+    text-shadow: 1px 1px 1px black;
+}
+
+.popup-input{
+    margin-bottom: 1.5rem;
+    max-width: 15rem;
+    font-size: .95rem;
+    padding: .5rem .75rem;
+    border-radius: .15rem;
+    border: 1px solid rgb(109, 109, 109);
+    transition: all .15s ease-in-out;
+}
+
+.popup-input:focus{
+    padding: 1rem .75rem;
+    font-size: 1rem;
+}
+
+.button-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.popup-button{
+    padding: .5rem .75rem;
+    border-radius: .25rem;
+    font-size: .9rem;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.save{   
+    border: 1px solid rgb(0, 85, 0);    
+    background-color: rgb(95, 255, 95); 
+}
+
+.save:hover{
+    background-color: rgb(47, 128, 47);
+}
+
+.cancel{
+    background-color: rgb(175, 127, 127);
+    border: 1px solid rgb(17, 0, 0);
+}
+
+.cancel:hover{
+    background-color: rgb(110, 79, 79);
 }
