@@ -2,6 +2,7 @@ import { CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Exercises.css";
+import { AiTwotoneDelete } from "react-icons/ai";
 
 const Exercises = () => {
   const [exercises, setExercises] = useState([]);
