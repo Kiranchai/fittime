@@ -1,11 +1,12 @@
 .single-exercise-section{
     min-height: var(--section-height);
-    
+    height: var(--section-height);
     display: flex;
     flex-direction: column;
     align-items: center;
     /* justify-content: center; */
     padding: 2rem;
+    gap: 2rem;
 }
 
 .grid-container{
@@ -48,8 +49,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 1rem .5rem;
     border: 1px solid #ccc;
+    min-height: 250px;
     border-radius: 1rem;
     -webkit-box-shadow: 5px 8px 17px -7px rgba(66, 68, 90, 1);
 -moz-box-shadow: 5px 8px 17px -7px rgba(66, 68, 90, 1);
@@ -58,9 +61,75 @@ box-shadow: 5px 8px 17px -7px rgba(66, 68, 90, 1);
 
 .trainings-container{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 80rem;
+    color: white;
+    height: 100%;
+}
+
+.trainings-header{
+    width: 100%;
+    text-align: center;
+    background-color: var(--navbar-bg-color);
+    padding: 1rem;
+    
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 1px black;
+}
+
+.trainings-table{
+    background-color: var(--navbar-bg-color);
+    width: 100%;
+    border-collapse: collapse;
+    text-shadow: 1px 1px 1px black;
+}
+
+.trainings-table thead tr th {
+    padding: .75rem 0;
+}
+
+.trainings-table-body{
+    height: 100%;
+}
+
+.trainings-table-row {
+    height: 2rem;
+    transition: all .2s ease-in-out;
+}
+
+.trainings-table-row th{
+    padding: 1rem .25rem;
+}
+
+
+ .trainings-table-row:nth-child(even):hover{
+    background-color: rgb(16, 100, 27);
+}
+
+.trainings-table-row:nth-child(odd):hover{
+    background-color: rgb(16, 100, 27);
+}
+
+
+.trainings-table-row:not(:last-child){
+    border-bottom: 1px dashed rgb(56, 107, 26);
+}
+
+.trainings-table-row:nth-child(even){
+    /* background-color: rgb(24, 145, 40);
+     */
+     background-color: rgb(102, 179, 116);
+     
+}
+
+.trainings-table-row:nth-child(odd){
+    background-color: rgb(109, 163, 97);
+    
+}
+
+.trainings-table-row:last-child(){
+    border-bottom-left-radius: 1rem;
 }
 
 

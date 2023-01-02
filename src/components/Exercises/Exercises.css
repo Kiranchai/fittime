@@ -79,9 +79,6 @@ border-radius: 1rem;
     cursor: pointer;
 }
 
-.list-element:hover .delete-button {
-    visibility: visible;
-}
 
 .list-element:hover{
     background-color: rgb(16, 100, 27);

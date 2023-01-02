@@ -8,7 +8,6 @@ const Exercises = () => {
   const [exercises, setExercises] = useState([]);
   const [popupShown, setPopupShown] = useState(false);
   const [exerciseName, setExerciseName] = useState("");
-  const [personalBest, setPersonalBest] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchExercises = async () => {
@@ -44,7 +43,6 @@ const Exercises = () => {
 
     const exercise = {
       name: exerciseName,
-      personalBest: personalBest,
     };
 
     fetch("http://localhost:3001/addExercise", {
@@ -80,8 +78,8 @@ const Exercises = () => {
               setExerciseName(e.target.value);
             }}
           />
-          <label className="popup-label" htmlFor="personal-best">
-            Rekord (kg):{" "}
+          {/* <label className="popup-label" htmlFor="personal-best">
+            Ciężar (kg):{" "}
           </label>
           <input
             className="popup-input"
@@ -101,6 +99,11 @@ const Exercises = () => {
             name="reps"
             placeholder="1"
           />
+          <label className="popup-label" htmlFor="">
+            Data treningu
+          </label>
+          <input type={"date"} className="popup-input" /> */}
+
           <div className="button-container">
             <button
               onClick={handleSave}
