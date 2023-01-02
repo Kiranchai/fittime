@@ -78,31 +78,6 @@ const Exercises = () => {
               setExerciseName(e.target.value);
             }}
           />
-          {/* <label className="popup-label" htmlFor="personal-best">
-            Ciężar (kg):{" "}
-          </label>
-          <input
-            className="popup-input"
-            type={"number"}
-            name="personal-best"
-            placeholder="150"
-            onChange={(e) => {
-              setPersonalBest(e.target.value);
-            }}
-          />
-          <label className="popup-label" htmlFor="reps">
-            Ilość powtórzeń:{" "}
-          </label>
-          <input
-            className="popup-input"
-            type={"number"}
-            name="reps"
-            placeholder="1"
-          />
-          <label className="popup-label" htmlFor="">
-            Data treningu
-          </label>
-          <input type={"date"} className="popup-input" /> */}
 
           <div className="button-container">
             <button
