@@ -9,6 +9,8 @@ const Exercises = () => {
   const [popupShown, setPopupShown] = useState(false);
   const [exerciseName, setExerciseName] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [removePopupShown, setRemovePopupShown] = useState(false);
+  const [removeExerciseId, setRemoveExerciseId] = useState("");
 
   const fetchExercises = async () => {
     fetch("http://localhost:3001/getExercises", {
@@ -36,6 +38,34 @@ const Exercises = () => {
   const handleCancel = (e) => {
     e.preventDefault();
     setPopupShown(false);
+  };
+
+  const handlePopupShown = (e, exerciseId) => {
+    e.preventDefault();
+    setRemovePopupShown(true);
+    setRemoveExerciseId(exerciseId);
+  };
+
+  const handleRemove = (e) => {
+    e.preventDefault();
+
+    fetch(`http://localhost:3001/removeExercise/${removeExerciseId}`, {
+      method: "DELETE",
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    })
+      .then(() => {
+        console.log("removed" + removeExerciseId);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setRemoveExerciseId("");
+        setRemovePopupShown(false);
+        fetchExercises();
+      });
   };
 
   const handleSave = (e) => {
@@ -94,9 +124,35 @@ const Exercises = () => {
         </form>
       </div>
 
+      {removePopupShown && (
+        <div className="remove-popup">
+          <div className="popup-info">
+            <h3 style={{ fontSize: "1.8rem" }}>
+              Czy na pewno chcesz usunąć te ćwiczenie?
+            </h3>
+            <span style={{ fontSize: "1.2rem" }}>Zmiany są nieodwracalne</span>
+          </div>
+          <div className="button-container">
+            <button className="remove-popup-btn remove" onClick={handleRemove}>
+              Usuń
+            </button>
+            <button
+              className="remove-popup-btn remove-cancel"
+              onClick={(e) => {
+                setRemovePopupShown(false);
+              }}
+            >
+              Anuluj
+            </button>
+          </div>
+        </div>
+      )}
+
       <section
         className={
-          popupShown ? "exercises-section blurred" : "exercises-section"
+          popupShown || removePopupShown
+            ? "exercises-section blurred"
+            : "exercises-section"
         }
       >
         <div className="list-container">
@@ -129,13 +185,22 @@ const Exercises = () => {
               <>
                 {exercises.map((exercise) => {
                   return (
-                    <NavLink
-                      className="list-element"
-                      to={`/exercise/${exercise._id}`}
-                      key={exercise._id}
-                    >
-                      {exercise.name}
-                    </NavLink>
+                    <div className="list-element" key={exercise._id}>
+                      <NavLink
+                        className={"list-link"}
+                        to={`/exercise/${exercise._id}`}
+                      >
+                        {exercise.name}
+                      </NavLink>
+                      <button
+                        className="delete-button"
+                        onClick={(e) => {
+                          handlePopupShown(e, exercise._id);
+                        }}
+                      >
+                        <AiTwotoneDelete />
+                      </button>
+                    </div>
                   );
                 })}
               </>

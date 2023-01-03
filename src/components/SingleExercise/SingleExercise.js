@@ -10,7 +10,6 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import { CircularProgress } from "@mui/material";
 
 const SingleExercise = () => {
   const { id } = useParams();
@@ -38,10 +37,6 @@ const SingleExercise = () => {
         if (!data.exerciseName) {
           navigate("/");
           return;
-        }
-
-        if (data.trainings.length === 0) {
-          console.log("hey");
         }
 
         setExercise(data.exerciseName);
