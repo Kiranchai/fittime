@@ -19,6 +19,8 @@ const SingleExercise = () => {
   const [personalBest, setPersonalBest] = useState(0);
   const [chartData, setChartData] = useState([]);
   const [popupShown, setPopupShown] = useState(false);
+  const [removePopupShown, setRemovePopupShown] = useState(false);
+  const [removeTrainingId, setRemoveTrainingId] = useState("");
   const [trainingDate, setTrainingDate] = useState(
     new Date().toJSON().slice(0, 10)
   );
@@ -98,6 +100,27 @@ const SingleExercise = () => {
     setPopupShown(false);
   };
 
+  const handleRemove = (e) => {
+    e.preventDefault();
+
+    fetch(`http://localhost:3001/removeTraining/${removeTrainingId}`, {
+      method: "DELETE",
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    })
+      .then(() => {
+        fetchTrainings();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setRemovePopupShown(false);
+        setRemoveTrainingId("");
+      });
+  };
+
   useEffect(() => {
     fetchTrainings();
   }, []);
@@ -170,9 +193,33 @@ const SingleExercise = () => {
         </form>
       </div>
 
+      {removePopupShown && (
+        <div className="remove-popup">
+          <div className="popup-info">
+            <h3 style={{ fontSize: "1.8rem" }}>
+              Czy na pewno chcesz usunąć ten trening?
+            </h3>
+            <span style={{ fontSize: "1.2rem" }}>Zmiany są nieodwracalne</span>
+          </div>
+          <div className="button-container">
+            <button className="remove-popup-btn remove" onClick={handleRemove}>
+              Usuń
+            </button>
+            <button
+              className="remove-popup-btn remove-cancel"
+              onClick={() => {
+                setRemovePopupShown(false);
+              }}
+            >
+              Anuluj
+            </button>
+          </div>
+        </div>
+      )}
+
       <section
         className={
-          popupShown
+          popupShown || removePopupShown
             ? "single-exercise-section blurred"
             : "single-exercise-section"
         }
@@ -244,7 +291,14 @@ const SingleExercise = () => {
               {trainings &&
                 trainings.map((training) => {
                   return (
-                    <tr className="trainings-table-row" key={training._id}>
+                    <tr
+                      className="trainings-table-row"
+                      key={training._id}
+                      onClick={() => {
+                        setRemovePopupShown(true);
+                        setRemoveTrainingId(training._id);
+                      }}
+                    >
                       <td>{training.date}</td>
                       <td>{training.series}</td>
                       <td>{training.reps}</td>

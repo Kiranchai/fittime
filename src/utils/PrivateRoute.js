@@ -10,7 +10,16 @@ const PrivateRoute = () => {
   return (
     <>
       {currentUser.pending ? (
-        <CircularProgress />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}
+        >
+          <CircularProgress />
+        </div>
       ) : (
         <>{currentUser.isLoggedIn ? <Outlet /> : navigate("/login")}</>
       )}
