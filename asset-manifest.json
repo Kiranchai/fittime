@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/fittime/static/css/main.94d43a70.css",
-    "main.js": "/fittime/static/js/main.c31d1e05.js",
+    "main.js": "/fittime/static/js/main.c6881e7b.js",
     "index.html": "/fittime/index.html",
     "main.94d43a70.css.map": "/fittime/static/css/main.94d43a70.css.map",
-    "main.c31d1e05.js.map": "/fittime/static/js/main.c31d1e05.js.map"
+    "main.c6881e7b.js.map": "/fittime/static/js/main.c6881e7b.js.map"
   },
   "entrypoints": [
     "static/css/main.94d43a70.css",
-    "static/js/main.c31d1e05.js"
+    "static/js/main.c6881e7b.js"
   ]
 }
