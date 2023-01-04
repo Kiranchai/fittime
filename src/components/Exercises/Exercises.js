@@ -155,8 +155,14 @@ const Exercises = () => {
             : "exercises-section"
         }
       >
-        <div className="list-container">
-          <h2 className="exercises-header">
+        <div className={"list-container"}>
+          <h2
+            className={
+              exercises.length === 0
+                ? "exercises-header emptied"
+                : "exercises-header"
+            }
+          >
             Moje ćwiczenia
             <span className="header-span" onClick={handleClick}>
               Dodaj
