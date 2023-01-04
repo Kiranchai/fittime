@@ -29,7 +29,7 @@ const SingleExercise = () => {
   const [weight, setWeight] = useState(0);
 
   const fetchTrainings = async () => {
-    fetch(`http://localhost:3001/getTrainings/${id}`, {
+    fetch(`https://fittime.cyclic.app/getTrainings/${id}`, {
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },
@@ -71,7 +71,7 @@ const SingleExercise = () => {
       weight,
     };
 
-    fetch("http://localhost:3001/addTraining", {
+    fetch("https://fittime.cyclic.app/addTraining", {
       method: "POST",
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -103,7 +103,7 @@ const SingleExercise = () => {
   const handleRemove = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:3001/removeTraining/${removeTrainingId}`, {
+    fetch(`https://fittime.cyclic.app/removeTraining/${removeTrainingId}`, {
       method: "DELETE",
       headers: {
         "x-access-token": localStorage.getItem("token"),

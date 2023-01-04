@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      fetch("http://localhost:3001/isLoggedIn", {
+      fetch("https://fittime.cyclic.app/isLoggedIn", {
         headers: {
           "x-access-token": localStorage.getItem("token"),
         },

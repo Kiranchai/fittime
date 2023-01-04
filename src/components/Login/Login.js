@@ -20,7 +20,7 @@ const Login = () => {
       password,
     };
 
-    fetch("http://localhost:3001/login", {
+    fetch("https://fittime.cyclic.app/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

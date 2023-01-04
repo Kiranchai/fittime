@@ -13,7 +13,7 @@ const Exercises = () => {
   const [removeExerciseId, setRemoveExerciseId] = useState("");
 
   const fetchExercises = async () => {
-    fetch("http://localhost:3001/getExercises", {
+    fetch("https://fittime.cyclic.app/getExercises", {
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },
@@ -49,7 +49,7 @@ const Exercises = () => {
   const handleRemove = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:3001/removeExercise/${removeExerciseId}`, {
+    fetch(`https://fittime.cyclic.app/removeExercise/${removeExerciseId}`, {
       method: "DELETE",
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -75,7 +75,7 @@ const Exercises = () => {
       name: exerciseName,
     };
 
-    fetch("http://localhost:3001/addExercise", {
+    fetch("https://fittime.cyclic.app/addExercise", {
       method: "POST",
       headers: {
         "x-access-token": localStorage.getItem("token"),
