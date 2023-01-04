@@ -152,7 +152,10 @@ border-radius: 1rem;
     transform: translate(-50%, -50%);
     text-shadow: 1px 1px 1px black;
     padding: 2rem;
+    width: 100%;
+    max-width: 22rem;
     border-radius: 1.5rem;
+    
 }
 
 .popup-info{
@@ -161,7 +164,7 @@ border-radius: 1rem;
     align-items: center;
     text-align: center;
     border: 1px dashed rgb(69, 128, 69);
-    padding:2rem;
+    padding:1.5rem 1rem;
     border-radius: 1rem;
     /* margin: 1rem; */
     gap: 2rem;
@@ -263,4 +266,12 @@ box-shadow: 4px 0px 32px 4px rgba(66, 68, 90, 1);
 
 .cancel:hover{
     background-color: rgb(110, 79, 79);
+}
+
+
+@media only screen and (max-width:400px){
+    
+    .remove-popup{
+        max-width: 19rem;
+    }
 }

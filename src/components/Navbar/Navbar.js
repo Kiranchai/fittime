@@ -25,22 +25,21 @@ const Navbar = () => {
           </span>
 
           <span className="hamburger-span">
-            <Hamburger onToggle={handleOnToggle} />
+            <Hamburger onToggle={handleOnToggle} toggled={iconIsActive} />
           </span>
         </div>
 
         <ul className={iconIsActive ? "navbar-list showed" : "navbar-list"}>
-          <li>
-            <NavLink className="navbar-link" to="/exercises">
-              Ćwiczenia
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink className="navbar-link" to="/account">
-              Konto
-            </NavLink>
-          </li>
+          <NavbarListItem
+            destination={"exercises"}
+            name={"Ćwiczenia"}
+            collapse={handleOnToggle}
+          />
+          <NavbarListItem
+            destination={"account"}
+            name={"Konto"}
+            collapse={handleOnToggle}
+          />
 
           <li className="navbar-link" onClick={signout}>
             Wyloguj
@@ -51,6 +50,20 @@ const Navbar = () => {
 
       <Outlet />
     </>
+  );
+};
+
+const NavbarListItem = ({ name, destination, collapse }) => {
+  return (
+    <li
+      onClick={() => {
+        collapse((prevState) => !prevState);
+      }}
+    >
+      <NavLink className="navbar-link" to={`/${destination}`}>
+        {name}
+      </NavLink>
+    </li>
   );
 };
 

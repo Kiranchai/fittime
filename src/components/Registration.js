@@ -11,10 +11,12 @@ const Registration = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [popupShown, setPopupShown] = useState(true);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     if (password !== confirmPassword) {
       setError("Podane hasła różnią się");
@@ -45,6 +47,9 @@ const Registration = () => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -158,8 +163,9 @@ const Registration = () => {
                     className="submit-btn"
                     onClick={handleSubmit}
                     type="submit"
+                    disabled={isLoading}
                   >
-                    Stwórz konto
+                    {isLoading ? <CircularProgress /> : "Stwórz konto"}
                   </button>
                 </form>
 

@@ -53,7 +53,7 @@ const Login = () => {
       ) : (
         <>
           {currentUser.isLoggedIn ? (
-            <Navigate to="/" />
+            <Navigate to="/exercises" />
           ) : (
             <div className="login-section">
               <h1 className="login-logo">
@@ -96,7 +96,7 @@ const Login = () => {
                   type="submit"
                   disabled={buttonDisabled}
                 >
-                  Zaloguj
+                  {buttonDisabled ? <CircularProgress /> : "Zaloguj"}
                 </button>
               </form>
 

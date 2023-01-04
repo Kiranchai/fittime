@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
+import { CircularProgress } from "@mui/material";
 
 const SingleExercise = () => {
   const { id } = useParams();
@@ -226,7 +227,9 @@ const SingleExercise = () => {
       >
         <div className="grid-container">
           <div className="details-container">
-            <h2 className="details-header">{exercise}</h2>
+            <h2 className="details-header">
+              {!!exercise ? exercise : <CircularProgress />}
+            </h2>
             <span className="details-span">
               Rekord: {!!personalBest ? personalBest : "0"}
               kg
